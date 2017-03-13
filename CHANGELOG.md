@@ -2,6 +2,23 @@
 
 ## Master
 
+### Enhancements
+
+- `if` blocks may now contain else if (`elif`) conditions.
+
+  ```html+django
+  {% if one or two and not three %}
+    one or two but not three
+  {% elif four %}
+    four
+  {% else %}
+    not one, two, or four
+  {% endif %}
+  ```
+
+
+## 0.8.0
+
 ### Breaking
 
 - It is no longer possible to create `Context` objects. Instead, you can pass a
@@ -58,6 +75,9 @@
 
 - `Environment` allows you to provide a custom `Template` subclass, allowing
   new template to use a specific subclass.
+
+- If expressions may now contain filters on variables. For example
+  `{% if name|uppercase == "TEST" %}` is now supported.
 
 ### Deprecations
 

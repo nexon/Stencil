@@ -19,6 +19,27 @@ A for loop allows you to iterate over an array found by variable lookup.
       {% endfor %}
     </ul>
 
+The ``for`` tag can iterate over dictionaries.
+
+.. code-block:: html+django
+
+    <ul>
+      {% for key, value in dict %}
+        <li>{{ key }}: {{ value }}</li>
+      {% endfor %}
+    </ul>
+
+The ``for`` tag can contain optional ``where`` expression to filter out
+elements on which this expression evaluates to false.
+
+.. code-block:: html+django
+
+    <ul>
+      {% for user in users where user.name != "Kyle" %}
+        <li>{{ user }}</li>
+      {% endfor %}
+    </ul>
+
 The ``for`` tag can take an optional ``{% empty %}`` block that will be
 displayed if the given list is empty or could not be found.
 

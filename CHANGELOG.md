@@ -1,9 +1,10 @@
 # Stencil Changelog
 
-## Master
+## 0.9.0
 
 ### Enhancements
 
+- `for` block now can contain `where` expression to filter array items. For example `{% for item in items where item > 1 %}` is now supported.
 - `if` blocks may now contain else if (`elif`) conditions.
 
   ```html+django
@@ -15,6 +16,19 @@
     not one, two, or four
   {% endif %}
   ```
+
+- `for` block now allows you to iterate over array of tuples or dictionaries.
+
+  ```html+django
+  {% for key, value in thing %}
+    <li>{{ key }}: {{ value }}</li>
+  {% endfor %}
+  ```
+
+### Bug Fixes
+
+- You can now use literal filter arguments which contain quotes.
+  [#98](https://github.com/kylef/Stencil/pull/98)
 
 
 ## 0.8.0

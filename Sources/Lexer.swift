@@ -52,7 +52,7 @@ struct Lexer {
 
     var trimmedTokens = tokens
     for (index, token) in tokens.enumerated() {
-        if case .block = token, tokens.count > 1 {
+        if case .block(let blockValue) = token, tokens.count > 1, !blockValue.hasPrefix("include") {
             let trimPattern = "^[\t ]*\n"
             if index < tokens.count - 1,
                 case .text(let nextText) = tokens[index + 1],

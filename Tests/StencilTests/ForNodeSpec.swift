@@ -112,7 +112,7 @@ func testForNode() {
       let template = Template(templateString: templateString)
       let result = try template.render(context)
 
-      let fixture = "one: I\ntwo: II\n\n"
+      let fixture = "one: I\ntwo: II\n"
       try expect(result) == fixture
     }
 
